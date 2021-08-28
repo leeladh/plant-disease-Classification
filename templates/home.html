@@ -1,0 +1,28 @@
+{% extends 'header.html' %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+		<div class="row justify-content-md-center">
+			<div class="col-md-4 mb-3 border border-info">
+				<label for="exampleFormControlFile1">Plant Image:</label>
+				<input type="file" name="plant" value="content" class="form-control-file" id="exampleFormControlFile1" required>
+				<div class="valid-feedback">
+			        Looks good!
+			    </div>
+			</div>
+		</div>
+		<div class="d-grid gap-2 col-6 mx-auto">
+			<button class="btn btn-primary" type="submit">Submit</button>
+		</div>
+    </form>
+	<br><br>
+	<div class="row justify-content-md-center" >
+		<div class="offset-md-4">
+			{% if request.files.get('plant') %}
+				<img src="static/images/plant_img.jpg">
+				<div class='offset-md-3'>
+					<h1>Result : {{result}}</h1>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}
